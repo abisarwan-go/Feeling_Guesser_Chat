@@ -75,6 +75,29 @@
     </footer>
 
     <script>
+        let socket;
+
+        function init() {
+            socket = new WebSocket('ws://' + window.location.hostname + ':1030/ws/chat/');
+
+            socket.onopen = function() {
+                console.log('WebSocket connection estbalished');
+            }
+
+            socket.onmessage = function(event) {
+                const messages = document.getElementById('messages');
+                const message = document.createElement('div');
+                const data = JSON.parse(event.data);
+                message.textContent = data.message;
+                messages.appendChild(message)
+            }
+
+            socket.onclose = function () {
+                console.log('websocket connection closed');
+            }
+        }
+        
+        
         function sendMessage() {
             let messageInput = document.getElementById('message');
             let messages = document.getElementById('messages');
@@ -84,7 +107,10 @@
                 newMessage.className = 'message'
                 newMessage.textContent = messageInput.value;
                 messages.appendChild(newMessage);
-
+                
+                //send to server
+                socket.send(JSON.stringify({'message': messageInput.value}))
+                
                 messageInput.value = '';
                 messages.scrollTop = messages.scrollHeight;  // Auto-scroll to the bottom
             }
@@ -96,6 +122,8 @@
                 sendMessage();
             }
         })
+        
+        window.onload = init;
     </script>
 </body>
 </html>

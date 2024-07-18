@@ -31,6 +31,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "custom_commands",
+    "chatDjango",
+    "channels",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -67,7 +70,7 @@ TEMPLATES = [
         },
     },
 ]
-
+ASGI_APPLICATION = "chatDjango.asgi.application"
 WSGI_APPLICATION = "chatDjango.wsgi.application"
 
 
