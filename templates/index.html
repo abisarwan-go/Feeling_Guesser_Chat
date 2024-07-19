@@ -78,7 +78,7 @@
         let socket;
 
         function init() {
-            socket = new WebSocket('ws://' + window.location.hostname + ':1030/ws/chat/');
+            socket = new WebSocket('ws://' + window.location.hostname + ':1999/ws/chat/');
 
             socket.onopen = function() {
                 console.log('WebSocket connection estbalished');
@@ -88,6 +88,7 @@
                 const messages = document.getElementById('messages');
                 const message = document.createElement('div');
                 const data = JSON.parse(event.data);
+                console.log("message resu ", data);
                 message.textContent = data.message;
                 messages.appendChild(message)
             }
