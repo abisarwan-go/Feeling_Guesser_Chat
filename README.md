@@ -1,9 +1,18 @@
-For execute this project 
 
-Make sure you have pythons libraries :
--daphne
--channels 
+# Project Execution Instructions
 
-python manage.py runserver                  #for django server
-daphne -p 1999 chatDjango.asgi:application  #for websocket server
+To successfully run this project, please ensure that you have the following Python libraries installed:
+- Daphne
+- Channels
 
+### Running the Servers
+
+1. **Django Server:**
+   ```bash
+   python manage.py runserver
+   ```
+
+2. **WebSocket Server:**
+   ```bash
+   daphne -p 1999 chatDjango.asgi:application
+   ```
