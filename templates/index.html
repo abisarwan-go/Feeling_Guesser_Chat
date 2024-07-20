@@ -5,13 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat</title>
     <style>
-        header {
-            height: 100px;
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f8f9fa;
+        }
+        header, footer {
+            width: 100%;
+            height: 10%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: lightskyblue;
         }
         /* Basic styling for the chat box */
         .chat-box {
-            width: 300px;
-            height: 400px;
+            width: 80%;
+            margin-left: 10%;
+            margin-right: 10%;
+            height: 700px;
             background-color: #f0f0f0;
             border: 1px solid #ccc;
             padding: 10px;
@@ -59,19 +77,20 @@
 </head>
 <body>
     <header>
-        <h1>Welcome to Chat</h1>
+        <h1>Welcome to Guesser Feeling Chat !</h1>
     </header>
 
     <div class="chat-box">
         <div class="messages" id="messages"></div>
         <div class="input-area">
+            <label for="message"></label>
             <input type="text" id="message" class="message-input" placeholder="Type your message...">
             <button class="send-button" onclick="sendMessage()"></button>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2024 My Website. All rights reserved.</p>
+        <p>&copy; Django ^^.</p>
     </footer>
 
     <script>
